@@ -11,4 +11,3 @@ View the Heroku Link [Deployed Link](https://developer.mozilla.org/en-US/docs/We
 
 ## GitHub Repo: 
 View the GitHub Repository [GitHub](https://github.com/hannalip/Workout-Tracker)
-it
