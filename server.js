@@ -15,13 +15,12 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // db mongo
-var MONGODB_URI = process.env.MONGODB_URI || 
-"mongodb://user1:password1@ds235378.mlab.com:35378/heroku_zrqwwpmj"
-;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useFindAndModify: false
 })
+
 
 // Creating Routes
 // require("./routes/apiRoutes")(app);
