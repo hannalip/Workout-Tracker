@@ -1,5 +1,4 @@
-const path = require("path");
-const Workout = require(__dirname,"../models/workout.js");
+const Workout = require("../models/workout.js");
 
 module.exports = function (app) {
 
@@ -13,10 +12,26 @@ module.exports = function (app) {
       })
   });
 
-  // app.post("/api/workouts", function (req, res) {
-  // });
 
-  // app.put("/api/workouts/:id", ({ body, params }, res) => {
+  app.post("/api/workouts", function (req, res) {
+    Workout.create({})
+        .then(data => res.json(data))
+        .catch(err => {
+            console.log("err", err)
+            res.json(err)
+        })
+});
 
-  // });
+app.put("/api/workouts/:id", ({ body, params }, res) => {
+    Workout.findByIdAndUpdate(
+        params.id,
+        { $push: { exercises: body } },
+        { new: true, runValidators: true }
+    )
+        .then(data => res.json(data))
+        .catch(err => {
+            console.log("err", err)
+            res.json(err)
+        })
+});
 }
